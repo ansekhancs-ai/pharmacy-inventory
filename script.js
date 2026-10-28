@@ -113,17 +113,46 @@ function showToast(message, type) {
   }, 3200);
 }
 
+let statsAnimated = false;
+let statsAnimFrame = 0;
+
+function setStatValues(total, lowStock, todaySales, inventoryValue) {
+  document.getElementById("statTotalMedicines").textContent = String(Math.round(total));
+  document.getElementById("statLowStock").textContent = String(Math.round(lowStock));
+  document.getElementById("statTodaySales").textContent = money(todaySales);
+  document.getElementById("statInventoryValue").textContent = money(inventoryValue);
+}
+
 function renderStats() {
   const lowStock = state.medicines.filter((m) => !isExpired(m.expiry) && m.quantity > 0 && m.quantity <= LOW_STOCK_LIMIT).length;
   const todaySales = state.sales
     .filter((s) => s.date.slice(0, 10) === todayKey())
     .reduce((sum, s) => sum + s.total, 0);
   const inventoryValue = state.medicines.reduce((sum, m) => sum + m.quantity * m.price, 0);
+  const total = state.medicines.length;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  document.getElementById("statTotalMedicines").textContent = String(state.medicines.length);
-  document.getElementById("statLowStock").textContent = String(lowStock);
-  document.getElementById("statTodaySales").textContent = money(todaySales);
-  document.getElementById("statInventoryValue").textContent = money(inventoryValue);
+  cancelAnimationFrame(statsAnimFrame);
+  if (statsAnimated || reduceMotion) {
+    setStatValues(total, lowStock, todaySales, inventoryValue);
+    statsAnimated = true;
+    return;
+  }
+
+  statsAnimated = true;
+  const duration = 700;
+  const start = performance.now();
+  const tick = (now) => {
+    const progress = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    setStatValues(total * eased, lowStock * eased, todaySales * eased, inventoryValue * eased);
+    if (progress < 1) {
+      statsAnimFrame = requestAnimationFrame(tick);
+    } else {
+      setStatValues(total, lowStock, todaySales, inventoryValue);
+    }
+  };
+  statsAnimFrame = requestAnimationFrame(tick);
 }
 
 function renderAlerts() {
@@ -169,7 +198,7 @@ function renderInventory() {
       const status = stockStatus(m);
       return `<tr>
         <td>${m.name}</td>
-        <td>${m.category}</td>
+        <td><span class="category-pill">${m.category}</span></td>
         <td>${m.quantity}</td>
         <td>${money(m.price)}</td>
         <td>${m.expiry}</td>
@@ -266,11 +295,24 @@ function openModal(medicine) {
     document.getElementById("medPrice").value = medicine.price;
     document.getElementById("medExpiry").value = medicine.expiry;
   }
+  els.medicineModal.classList.remove("is-closing");
   els.medicineModal.hidden = false;
 }
 
 function closeModal() {
-  els.medicineModal.hidden = true;
+  const modal = els.medicineModal;
+  if (modal.hidden) return;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) {
+    modal.hidden = true;
+    modal.classList.remove("is-closing");
+    return;
+  }
+  modal.classList.add("is-closing");
+  window.setTimeout(() => {
+    modal.hidden = true;
+    modal.classList.remove("is-closing");
+  }, 180);
 }
 
 function validateMedicine(data) {

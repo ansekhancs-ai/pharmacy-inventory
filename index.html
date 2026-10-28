@@ -4,9 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MediTrack — Pharmacy Inventory &amp; Sales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="ambient" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+  </div>
   <div class="app">
     <aside class="sidebar" id="sidebar">
       <div class="brand">
@@ -17,10 +24,22 @@
         </div>
       </div>
       <nav class="side-nav" aria-label="Main">
-        <button class="nav-btn active" data-view="dashboard" type="button">Dashboard</button>
-        <button class="nav-btn" data-view="inventory" type="button">Inventory</button>
-        <button class="nav-btn" data-view="sales" type="button">Sales</button>
-        <button class="nav-btn" data-view="history" type="button">Sales history</button>
+        <button class="nav-btn active" data-view="dashboard" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 13h7V4H4v9zm9 7h7v-9h-7v9zM4 20h7v-5H4v5zm9-9h7V4h-7v7z"/></svg>
+          Dashboard
+        </button>
+        <button class="nav-btn" data-view="inventory" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+          Inventory
+        </button>
+        <button class="nav-btn" data-view="sales" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 4-6"/></svg>
+          Sales
+        </button>
+        <button class="nav-btn" data-view="history" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg>
+          Sales history
+        </button>
       </nav>
       <p class="sidebar-note">Educational front-end demo. Not a production pharmacy or billing system.</p>
     </aside>
