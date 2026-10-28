@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediTrack — Pharmacy Inventory &amp; Sales</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">+</span>
+        <div>
+          <strong>MediTrack</strong>
+          <span>Pharmacy desk</span>
+        </div>
+      </div>
+      <nav class="side-nav" aria-label="Main">
+        <button class="nav-btn active" data-view="dashboard" type="button">Dashboard</button>
+        <button class="nav-btn" data-view="inventory" type="button">Inventory</button>
+        <button class="nav-btn" data-view="sales" type="button">Sales</button>
+        <button class="nav-btn" data-view="history" type="button">Sales history</button>
+      </nav>
+      <p class="sidebar-note">Educational front-end demo. Not a production pharmacy or billing system.</p>
+    </aside>
+
+    <div class="overlay" id="overlay" hidden></div>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p class="subtitle" id="pageSubtitle">Overview of stock and daily sales</p>
+        </div>
+        <div class="topbar-meta">
+          <span id="clock"></span>
+          <span class="badge">Local demo</span>
+        </div>
+      </header>
+
+      <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+      <section class="view active" id="view-dashboard">
+        <div class="cards">
+          <article class="card">
+            <p>Total medicines</p>
+            <h2 id="statTotalMedicines">0</h2>
+            <span>Unique products in inventory</span>
+          </article>
+          <article class="card warning">
+            <p>Low stock</p>
+            <h2 id="statLowStock">0</h2>
+            <span>Items at or below 10 units</span>
+          </article>
+          <article class="card success">
+            <p>Today's sales</p>
+            <h2 id="statTodaySales">$0.00</h2>
+            <span>Completed transactions today</span>
+          </article>
+          <article class="card info">
+            <p>Inventory value</p>
+            <h2 id="statInventoryValue">$0.00</h2>
+            <span>Quantity × unit price</span>
+          </article>
+        </div>
+
+        <div class="panel-grid">
+          <article class="panel">
+            <div class="panel-head">
+              <h3>Stock alerts</h3>
+            </div>
+            <ul class="alert-list" id="alertList"></ul>
+          </article>
+          <article class="panel">
+            <div class="panel-head">
+              <h3>Recent sales</h3>
+            </div>
+            <ul class="recent-list" id="recentSales"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="view-inventory">
+        <div class="toolbar">
+          <label class="search-wrap">
+            <span class="sr-only">Search medicines</span>
+            <input type="search" id="searchInput" placeholder="Search by name or category…">
+          </label>
+          <button class="btn primary" id="addMedicineBtn" type="button">Add medicine</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Medicine</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Expiry</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="view" id="view-sales">
+        <div class="panel-grid sales-layout">
+          <article class="panel">
+            <div class="panel-head">
+              <h3>New sale</h3>
+            </div>
+            <form id="saleForm" class="form">
+              <label>
+                Medicine
+                <select id="saleMedicine" required>
+                  <option value="">Select a medicine</option>
+                </select>
+              </label>
+              <p class="hint" id="saleStockHint">Choose a medicine to see available stock.</p>
+              <label>
+                Quantity
+                <input type="number" id="saleQty" min="1" step="1" required placeholder="1">
+              </label>
+              <div class="totals">
+                <div><span>Unit price</span><strong id="saleUnit">$0.00</strong></div>
+                <div><span>Line total</span><strong id="saleTotal">$0.00</strong></div>
+              </div>
+              <button class="btn primary" type="submit">Complete sale</button>
+            </form>
+          </article>
+          <article class="panel">
+            <div class="panel-head">
+              <h3>Today at a glance</h3>
+            </div>
+            <ul class="stat-mini" id="todayBreakdown"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="view-history">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Medicine</th>
+                <th>Qty</th>
+                <th>Unit price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="modal" id="medicineModal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="panel-head">
+        <h3 id="modalTitle">Add medicine</h3>
+        <button class="icon-btn" id="closeModal" type="button" aria-label="Close">×</button>
+      </div>
+      <form id="medicineForm" class="form">
+        <input type="hidden" id="medicineId">
+        <label>
+          Medicine name
+          <input type="text" id="medName" required maxlength="80" placeholder="e.g. Amoxicillin 500mg">
+        </label>
+        <label>
+          Category
+          <select id="medCategory" required>
+            <option value="">Select category</option>
+            <option>Antibiotics</option>
+            <option>Analgesics</option>
+            <option>Antihistamines</option>
+            <option>Cardiovascular</option>
+            <option>Diabetes</option>
+            <option>Gastrointestinal</option>
+            <option>Vitamins</option>
+            <option>Respiratory</option>
+            <option>Dermatology</option>
+          </select>
+        </label>
+        <div class="form-row">
+          <label>
+            Quantity
+            <input type="number" id="medQty" min="0" step="1" required>
+          </label>
+          <label>
+            Unit price (USD)
+            <input type="number" id="medPrice" min="0.01" step="0.01" required>
+          </label>
+        </div>
+        <label>
+          Expiry date
+          <input type="date" id="medExpiry" required>
+        </label>
+        <div class="form-actions">
+          <button class="btn ghost" type="button" id="cancelModal">Cancel</button>
+          <button class="btn primary" type="submit">Save medicine</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
