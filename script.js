@@ -48,6 +48,7 @@ const els = {
   addMedicineBtn: document.getElementById("addMedicineBtn"),
   medicineModal: document.getElementById("medicineModal"),
   medicineForm: document.getElementById("medicineForm"),
+  medicineId: document.getElementById("medicineId"),
   modalTitle: document.getElementById("modalTitle"),
   closeModal: document.getElementById("closeModal"),
   cancelModal: document.getElementById("cancelModal"),
@@ -256,7 +257,7 @@ function renderAll() {
 
 function openModal(medicine) {
   els.medicineForm.reset();
-  els.medicineId.value = medicine ? medicine.id : "";
+  els.medicineId.value = medicine ? String(medicine.id) : "";
   els.modalTitle.textContent = medicine ? "Edit medicine" : "Add medicine";
   if (medicine) {
     document.getElementById("medName").value = medicine.name;
@@ -284,7 +285,7 @@ function validateMedicine(data) {
 function saveMedicine(event) {
   event.preventDefault();
   const data = {
-    id: document.getElementById("medicineId").value || `m${Date.now()}`,
+    id: els.medicineId.value || `m${Date.now()}`,
     name: document.getElementById("medName").value.trim(),
     category: document.getElementById("medCategory").value,
     quantity: Number(document.getElementById("medQty").value),
@@ -297,7 +298,7 @@ function saveMedicine(event) {
     return;
   }
 
-  const index = state.medicines.findIndex((m) => m.id === data.id);
+  const index = state.medicines.findIndex((m) => String(m.id) === String(data.id));
   if (index >= 0) {
     state.medicines[index] = data;
     showToast("Medicine updated.", "success");
@@ -398,13 +399,18 @@ function bindEvents() {
   els.saleQty.addEventListener("input", updateSalePreview);
 
   els.inventoryBody.addEventListener("click", (event) => {
-    const editId = event.target.dataset.edit;
-    const deleteId = event.target.dataset.delete;
-    if (editId) {
-      const med = state.medicines.find((m) => m.id === editId);
+    const editBtn = event.target.closest("[data-edit]");
+    const deleteBtn = event.target.closest("[data-delete]");
+    if (editBtn) {
+      const editId = editBtn.getAttribute("data-edit");
+      const med = state.medicines.find((m) => String(m.id) === String(editId));
+      if (!med) {
+        showToast("Could not find that medicine to edit.", "error");
+        return;
+      }
       openModal(med);
     }
-    if (deleteId) deleteMedicine(deleteId);
+    if (deleteBtn) deleteMedicine(deleteBtn.getAttribute("data-delete"));
   });
 
   els.medicineModal.addEventListener("click", (event) => {
