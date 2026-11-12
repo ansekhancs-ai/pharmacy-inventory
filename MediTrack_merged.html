@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediTrack — Pharmacy Inventory &amp; Sales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJNZWRpVHJhY2sgbG9nbyIgeG1sbnM6YzJwYT0iaHR0cDovL2MycGEub3JnL21hbmlmZXN0Ij4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNmNjMGZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41NSIgc3RvcC1jb2xvcj0iIzJmOGJmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyMGUwYzAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Imdsb3ciIGN4PSIwLjI4IiBjeT0iMC4yIiByPSIwLjgiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMC41NSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNiIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJzaGVlbiIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMC41Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaW0iIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9IjAuOSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwLjYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxldHRlciIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZDlmM2ZmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNTAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjYiIHN0ZERldmlhdGlvbj0iNiIgZmxvb2QtY29sb3I9IiMwNjMwN2EiIGZsb29kLW9wYWNpdHk9IjAuNDUiLz4KICAgIDwvZmlsdGVyPgogICAgPGNsaXBQYXRoIGlkPSJjbGlwIj48cmVjdCB4PSIxNiIgeT0iMTYiIHdpZHRoPSIyMjQiIGhlaWdodD0iMjI0IiByeD0iNjgiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KCiAgPHJlY3QgeD0iMTYiIHk9IjE2IiB3aWR0aD0iMjI0IiBoZWlnaHQ9IjIyNCIgcng9IjY4IiBmaWxsPSJ1cmwoI2JnKSIvPgogIDxnIGNsaXAtcGF0aD0idXJsKCNjbGlwKSI+CiAgICA8cmVjdCB4PSIxNiIgeT0iMTYiIHdpZHRoPSIyMjQiIGhlaWdodD0iMjI0IiBmaWxsPSJ1cmwoI2dsb3cpIi8+CiAgICA8ZWxsaXBzZSBjeD0iMTI4IiBjeT0iNDgiIHJ4PSIxMDQiIHJ5PSI1MiIgZmlsbD0idXJsKCNzaGVlbikiLz4KICAgIDxlbGxpcHNlIGN4PSIxMjgiIGN5PSIyNTAiIHJ4PSIxMjAiIHJ5PSI0MCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC4xMiIvPgogIDwvZz4KICA8cmVjdCB4PSIxNy41IiB5PSIxNy41IiB3aWR0aD0iMjIxIiBoZWlnaHQ9IjIyMSIgcng9IjY2LjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNyaW0pIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSIzMCIgeT0iMzAiIHdpZHRoPSIxOTYiIGhlaWdodD0iMTk2IiByeD0iNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMTQiIHN0cm9rZS13aWR0aD0iMS41Ii8+CgogIDxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIj4KICAgIDxwYXRoIGQ9Ik04MCAxNzJWOTBMMTI4IDE0MEwxNzYgOTBWMTcyIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjbGV0dGVyKSIgc3Ryb2tlLXdpZHRoPSIyNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgICA8cGF0aCBkPSJNMTI4IDg4djIyTTExNyA5OWgyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzlmZmYxIiBzdHJva2Utd2lkdGg9IjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDwvZz4KPG1ldGFkYXRhPjxjMnBhOm1hbmlmZXN0PkFBQVdnbXAxYldJQUFBQWVhblZ0WkdNeWNHRUFFUUFRZ0FBQXFnQTRtM0VEWXpKd1lRQUFBQlpjYW5WdFlnQUFBRWRxZFcxa1l6SnRZUUFSQUJDQUFBQ3FBRGliY1FOMWNtNDZZekp3WVRvM1pUVmtNMkprTVMxbU1tTmpMVFE1TURNdFlUWTNaQzFoT0RNMk5qSXdPREEyTWpJQUFBQURsMnAxYldJQUFBQXBhblZ0WkdNeVlYTUFFUUFRZ0FBQXFnQTRtM0VEWXpKd1lTNWhjM05sY25ScGIyNXpBQUFBQUx4cWRXMWlBQUFBUkdwMWJXUmpZbTl5QUJFQUVJQUFBS29BT0p0eEUyTXljR0V1YVc1bmNtVmthV1Z1ZEM1Mk13QUFBQUFZWXpKemFKbXQvaGc0N3pORlcra1o0MUwyQzI4QUFBQndZMkp2Y3FOcFpHTTZabTl5YldGMGJXbHRZV2RsTDNOMlp5dDRiV3hxYVc1emRHRnVZMlZKUkhnc2VHMXdPbWxwWkRveE5UZGhObUZoTkMwM01EQmxMVFJoTWpBdE9XWmtNeTB6TVdKaE56bGlaR0kzTURGc2NtVnNZWFJwYjI1emFHbHdhSEJoY21WdWRFOW1BQUFCNG1wMWJXSUFBQUJCYW5WdFpHTmliM0lBRVFBUWdBQUFxZ0E0bTNFVFl6SndZUzVoWTNScGIyNXpMbll5QUFBQUFCaGpNbk5vRjl6dnZQWmlhQmZSRzZrMEJHL252Z0FBQVpsalltOXlvbWRoWTNScGIyNXpncUptWVdOMGFXOXVhMk15Y0dFdWIzQmxibVZrYW5CaGNtRnRaWFJsY25PaGEybHVaM0psWkdsbGJuUnpnYUpqZFhKc2VDMXpaV3htSTJwMWJXSm1QV015Y0dFdVlYTnpaWEowYVc5dWN5OWpNbkJoTG1sdVozSmxaR2xsYm5RdWRqTmthR0Z6YUZnZ2dDMDBlRGRqOTBHYVlhbTkxaDN5OGRHZVlIV0hSUmo5SU96TFlhTCtMSU9rWm1GamRHbHZibmdkWTI5dExtRnVkR2h5YjNCcFl5NWpiR0YxWkdVdWNISnZkbWxrWldScWNHRnlZVzFsZEdWeWM2RjRIMk52YlM1aGJuUm9jbTl3YVdNdWIzSnBaMmx1TFdOdmJtWnBaR1Z1WTJWbmRXNXJibTkzYm10a1pYTmpjbWx3ZEdsdmJuaG1RMnhoZFdSbElIQnliM1pwWkdWa0lIUm9hWE1nWm1sc1pTQmhkQ0IwYUdVZ2NtVnhkV1Z6ZENCdlppQmhJSFZ6WlhJZ1lXNWtJRzFoZVNCb1lYWmxJR055WldGMFpXUWdiM0lnYlc5a2FXWnBaV1FnZEdobElHWnBiR1VnWTI5dWRHVnVkSE11YlhOdlpuUjNZWEpsUVdkbGJuU2haRzVoYldWbVEyeGhkV1JsY21Gc2JFRmpkR2x2Ym5OSmJtTnNkV1JsWlBVQUFBRElhblZ0WWdBQUFFQnFkVzFrWTJKdmNnQVJBQkNBQUFDcUFEaWJjUk5qTW5CaExtaGhjMmd1WkdGMFlRQUFBQUFZWXpKemFPWnFtanRDbnd0cDJxYmJHeVdDWnlBQUFBQ0FZMkp2Y3FWallXeG5abk5vWVRJMU5tTndZV1JNQUFBQUFBQUFBQUFBQUFBQVpHaGhjMmhZSUozUEFsNUNKQTl6d0c0dTlBZWVmbmNpbGcxSi96bzY1MlpSaWZETmFFNnRaRzVoYldWdWFuVnRZbVlnYldGdWFXWmxjM1JxWlhoamJIVnphVzl1YzRHaVpYTjBZWEowR1FsZVpteGxibWQwYUJrZUJBQUFBajVxZFcxaUFBQUFKMnAxYldSak1tTnNBQkVBRUlBQUFLb0FPSnR4QTJNeWNHRXVZMnhoYVcwdWRqSUFBQUFDRDJOaWIzS2xZMkZzWjJaemFHRXlOVFpwYzJsbmJtRjBkWEpsZUUxelpXeG1JMnAxYldKbVBTOWpNbkJoTDNWeWJqcGpNbkJoT2pkbE5XUXpZbVF4TFdZeVkyTXRORGt3TXkxaE5qZGtMV0U0TXpZMk1qQTRNRFl5TWk5ak1uQmhMbk5wWjI1aGRIVnlaV3BwYm5OMFlXNWpaVWxFZUN4NGJYQTZhV2xrT21aaVlqVmpOemN5TFRabU9EUXRORE5sTWkxaU1XVmlMV0V6T0dNMk9HTmxOelU0WlhKamNtVmhkR1ZrWDJGemMyVnlkR2x2Ym5PRG9tTjFjbXg0TFhObGJHWWphblZ0WW1ZOVl6SndZUzVoYzNObGNuUnBiMjV6TDJNeWNHRXVhVzVuY21Wa2FXVnVkQzUyTTJSb1lYTm9XQ0NBTFRSNE4yUDNRWnBocWIzV0hmTHgwWjVnZFlkRkdQMGc3TXRob3Y0c2c2SmpkWEpzZUNwelpXeG1JMnAxYldKbVBXTXljR0V1WVhOelpYSjBhVzl1Y3k5ak1uQmhMbUZqZEdsdmJuTXVkakprYUdGemFGZ2d2MlZEOHkvR1kzQ2wxSHRKNU0vRENzU2U2QXQ3eXM1SUtzY1RyVk9PNGxPaVkzVnliSGdwYzJWc1ppTnFkVzFpWmoxak1uQmhMbUZ6YzJWeWRHbHZibk12WXpKd1lTNW9ZWE5vTG1SaGRHRmthR0Z6YUZnZ3BCaENZdmdpK2Vwd3NwUWtmVTZkQ3FmT3NRM2FPMjJ0dlFoL24xVm4zMWgwWTJ4aGFXMWZaMlZ1WlhKaGRHOXlYMmx1Wm0ralpHNWhiV1Z2UVc1MGFISnZjR2xqSUVacGJHVnpaM1psY25OcGIyNWxNUzR3TGpCcmMzQmxZMVpsY25OcGIyNWxNaTQwTGpBQUFCQTRhblZ0WWdBQUFDaHFkVzFrWXpKamN3QVJBQkNBQUFDcUFEaWJjUU5qTW5CaExuTnBaMjVoZEhWeVpRQUFBQkFJWTJKdmN0S0VXUUlTb2dFbUdDRlpBZ293Z2dJR01JSUJqYUFEQWdFQ0FoUkE1YUFLN3NJNTBMNjRnL29HUWdVOVoxVVRBREFLQmdncWhrak9QUVFEQXpCSk1SY3dGUVlEVlFRS0V3NUJiblJvY205d2FXTXNJRkJDUXpFdU1Dd0dBMVVFQXhNbFFXNTBhSEp2Y0dsaklFTnZiblJsYm5RZ1EzSmxaR1Z1ZEdsaGJITWdVbTl2ZENCRFFUQWVGdzB5TmpBNE1EY3hPRFF6TlRaYUZ3MHlPREE0TURZeE9UUXpOVFphTUVReEZ6QVZCZ05WQkFvVERrRnVkR2h5YjNCcFl5d2dVRUpETVNrd0p3WURWUVFERXlCQmJuUm9jbTl3YVdNZ1EyeGhkV1JsSUVOdmJuUmxiblFnVTJsbmJtbHVaekJaTUJNR0J5cUdTTTQ5QWdFR0NDcUdTTTQ5QXdFSEEwSUFCSmg2Q212TFVCZ0ZGTlUwdlVLbE9WdEU2ZGpkMTdMNVN1d1gwTGVtRmlzQk0zZGtkLzNjeWp4RkEzUW81UzQ2ZlgwL2loWTBWWjdtZmI5S0Y3MDN0NU9qV0RCV01BNEdBMVVkRHdFQi93UUVBd0lIZ0RBVkJnTlZIU1VFRGpBTUJnb3JCZ0VFQVlQb1hnSUJNQXdHQTFVZEV3RUIvd1FDTUFBd0h3WURWUjBqQkJnd0ZvQVV6bEhpQklGT1pGc2orT1BFejVvK25NSFhYTUl3Q2dZSUtvWkl6ajBFQXdNRFp3QXdaQUl3TVhNZEZKNEJldExMVlk3T1J1RTlub3FiYkFaT1puL2FBclh5VHdGQVpmS3JQenhGMnZQb0pOZjErVUNkZzFYR0FqQndYMXpkOVdHcVlrcW1MNVNGcXcxUXlTanIxekpmcEpNOSsxcmREd1NQTE1PUE9qS3VpWGpvVS9wVVVlRzlSd21oWTNCaFpGa05uZ0FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQVBaWVFMT3BwRDZqclZHKytsZ0l3Y05wK3krd1JCTGlvcTRGcEVycnh4NGt6NDJSNUNDclEwSm1pVDBRNENaa0RrbnhiR1hNQms2blZneDJxa2RkcjBvTWNwWT08L2MycGE6bWFuaWZlc3Q+PC9tZXRhZGF0YT48L3N2Zz4K">
+  <style>
+:root {
+  --bg: #07111f;
+  --bg-elevated: #0d1b2a;
+  --glass: rgba(13, 27, 42, 0.62);
+  --glass-strong: rgba(15, 32, 52, 0.82);
+  --ink: #f1f5f9;
+  --muted: #94a3b8;
+  --line: rgba(148, 163, 184, 0.16);
+  --line-strong: rgba(32, 224, 192, 0.28);
+  --teal: #20e0c0;
+  --teal-dark: #12b89c;
+  --cyan: #38bdf8;
+  --amber: #f5b942;
+  --amber-soft: rgba(245, 185, 66, 0.14);
+  --rose: #fb7185;
+  --rose-soft: rgba(251, 113, 133, 0.14);
+  --sky: #38bdf8;
+  --success: #34d399;
+  --shadow: 0 18px 50px rgba(2, 8, 18, 0.45);
+  --radius: 18px;
+  --sidebar: 268px;
+  --focus: 0 0 0 3px rgba(32, 224, 192, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(900px 480px at 12% -8%, rgba(32, 224, 192, 0.12), transparent 55%),
+    radial-gradient(720px 420px at 100% 0%, rgba(56, 189, 248, 0.1), transparent 50%),
+    linear-gradient(180deg, #081526 0%, #07111f 42%, #06101c 100%);
+}
+
+button, input, select {
+  font: inherit;
+  color: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  box-shadow: var(--focus);
+}
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.45;
+}
+
+.orb-a {
+  width: 280px;
+  height: 280px;
+  left: 18%;
+  top: 12%;
+  background: rgba(32, 224, 192, 0.18);
+}
+
+.orb-b {
+  width: 340px;
+  height: 340px;
+  right: -40px;
+  bottom: 8%;
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar {
+  width: var(--sidebar);
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0.92) 0%, rgba(8, 18, 32, 0.96) 100%);
+  border-right: 1px solid var(--line);
+  color: var(--ink);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 8px 10px;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #2af0cf 0%, #14b8a6 100%);
+  color: #042f2e;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(32, 224, 192, 0.25);
+}
+
+.brand strong {
+  display: block;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+}
+
+.brand span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  padding: 12px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-btn svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.nav-btn:hover {
+  background: rgba(32, 224, 192, 0.08);
+  color: var(--ink);
+  transform: translateX(2px);
+}
+
+.nav-btn.active {
+  background: rgba(32, 224, 192, 0.12);
+  color: var(--ink);
+  border-color: var(--line-strong);
+  box-shadow: inset 0 0 0 1px rgba(32, 224, 192, 0.08);
+}
+
+.sidebar-note {
+  margin-top: auto;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(7, 17, 31, 0.45);
+}
+
+.main {
+  flex: 1;
+  padding: 24px 28px 36px;
+  min-width: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.topbar-meta {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  padding-top: 4px;
+}
+
+.badge {
+  background: rgba(32, 224, 192, 0.12);
+  color: var(--teal);
+  border: 1px solid rgba(32, 224, 192, 0.22);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.menu-btn {
+  display: none;
+  border: 1px solid var(--line);
+  background: rgba(13, 27, 42, 0.8);
+  color: var(--ink);
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-btn:hover {
+  border-color: var(--line-strong);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card, .panel, .table-wrap, .modal-card {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.card {
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  animation: rise 0.5s ease both;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -40% auto;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(32, 224, 192, 0.16), transparent 68%);
+  pointer-events: none;
+}
+
+.card:nth-child(1) { animation-delay: 0.02s; }
+.card:nth-child(2) { animation-delay: 0.08s; }
+.card:nth-child(3) { animation-delay: 0.14s; }
+.card:nth-child(4) { animation-delay: 0.2s; }
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(32, 224, 192, 0.28);
+  box-shadow: 0 22px 40px rgba(2, 8, 18, 0.5);
+}
+
+.card p, .card span {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card span {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+}
+
+.card h2 {
+  margin: 12px 0 8px;
+  font-size: 30px;
+  letter-spacing: -0.03em;
+}
+
+.card.warning { border-top: 3px solid var(--amber); }
+.card.success { border-top: 3px solid var(--teal); }
+.card.info { border-top: 3px solid var(--cyan); }
+.card:first-child { border-top: 3px solid var(--teal); }
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.panel {
+  padding: 8px 0 12px;
+  animation: rise 0.55s ease both;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px 8px;
+}
+
+.panel-head h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.alert-list, .recent-list, .stat-mini {
+  list-style: none;
+  margin: 0;
+  padding: 0 18px 8px;
+}
+
+.alert-list li, .recent-list li, .stat-mini li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 8px 0 16px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.search-wrap {
+  flex: 1;
+}
+
+.search-wrap input,
+.form input,
+.form select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: rgba(7, 17, 31, 0.72);
+  color: var(--ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.search-wrap input::placeholder,
+.form input::placeholder {
+  color: #64748b;
+}
+
+.search-wrap input:hover,
+.form input:hover,
+.form select:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+th, td {
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+td:first-child, th:first-child {
+  white-space: normal;
+}
+
+th {
+  background: rgba(8, 18, 32, 0.88);
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 12px;
+  position: sticky;
+  top: 0;
+}
+
+th:last-child,
+td:last-child {
+  position: sticky;
+  right: 0;
+  background: rgba(10, 22, 36, 0.94);
+  box-shadow: -12px 0 16px rgba(7, 17, 31, 0.25);
+}
+
+tbody tr {
+  transition: background 0.18s ease;
+}
+
+tbody tr:hover {
+  background: rgba(32, 224, 192, 0.06);
+}
+
+.category-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.1);
+  color: #7dd3fc;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status.in-stock {
+  background: rgba(32, 224, 192, 0.12);
+  color: var(--teal);
+}
+
+.status.low {
+  background: var(--amber-soft);
+  color: var(--amber);
+}
+
+.status.out {
+  background: var(--rose-soft);
+  color: var(--rose);
+}
+
+.status.expired {
+  background: rgba(167, 139, 250, 0.16);
+  color: #c4b5fd;
+}
+
+.row-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn, .icon-btn {
+  border: 0;
+  cursor: pointer;
+}
+
+.btn {
+  border-radius: 12px;
+  padding: 11px 16px;
+  font-weight: 650;
+  transition: transform 0.16s ease, background 0.16s ease, box-shadow 0.16s ease, opacity 0.16s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn.primary {
+  background: linear-gradient(180deg, #34f0d0 0%, #12c7ac 100%);
+  color: #042f2e;
+  box-shadow: 0 8px 20px rgba(32, 224, 192, 0.22);
+}
+
+.btn.primary:hover {
+  background: linear-gradient(180deg, #4ff5d8 0%, #14d4b6 100%);
+}
+
+.btn.ghost {
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.btn.ghost:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.btn.small {
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+.btn.danger {
+  background: var(--rose-soft);
+  color: var(--rose);
+  border: 1px solid rgba(251, 113, 133, 0.22);
+}
+
+.btn.danger:hover {
+  background: rgba(251, 113, 133, 0.22);
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+  padding: 0 18px 18px;
+}
+
+.form label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.hint {
+  margin: -6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.totals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.totals div {
+  background: rgba(32, 224, 192, 0.08);
+  border: 1px solid rgba(32, 224, 192, 0.16);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.totals span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.totals strong {
+  color: var(--teal);
+  font-size: 18px;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+  animation: pageIn 0.35s ease;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 10, 20, 0.62);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+}
+
+.modal:not([hidden]) {
+  animation: fadeIn 0.2s ease;
+}
+
+.modal:not([hidden]) .modal-card {
+  animation: modalIn 0.22s ease;
+}
+
+.modal.is-closing {
+  animation: fadeOut 0.18s ease forwards;
+}
+
+.modal.is-closing .modal-card {
+  animation: modalOut 0.18s ease forwards;
+}
+
+.modal[hidden], .overlay[hidden], .toast[hidden] {
+  display: none !important;
+}
+
+.modal-card {
+  width: min(520px, 100%);
+  max-height: min(88vh, 760px);
+  overflow: auto;
+  background: var(--glass-strong);
+}
+
+.icon-btn {
+  background: transparent;
+  font-size: 24px;
+  color: var(--muted);
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.icon-btn:hover {
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--ink);
+}
+
+.toast {
+  position: sticky;
+  top: 8px;
+  z-index: 10;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  animation: rise 0.25s ease;
+}
+
+.toast.success {
+  background: rgba(32, 224, 192, 0.12);
+  color: var(--teal);
+  border-color: rgba(32, 224, 192, 0.22);
+}
+
+.toast.error {
+  background: var(--rose-soft);
+  color: var(--rose);
+  border-color: rgba(251, 113, 133, 0.22);
+}
+
+.overlay {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0.6;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes modalOut {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.97) translateY(6px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 30;
+    transition: transform 0.2s ease;
+  }
+
+  .sidebar.open {
+    transform: none;
+  }
+
+  .menu-btn, .overlay {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .overlay:not([hidden]) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 10, 20, 0.55);
+    z-index: 25;
+    backdrop-filter: blur(6px);
+  }
+
+  .panel-grid, .form-row, .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .main {
+    padding: 16px;
+  }
+
+  .topbar {
+    padding: 12px;
+  }
+
+  .topbar-meta #clock {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .card:hover,
+  .btn:hover,
+  .nav-btn:hover {
+    transform: none;
+  }
+}
+
+/* ---- Project 13 additions ---- */
+.topbar-meta select {
+  background: rgba(7, 17, 31, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 7px 10px;
+  color: var(--ink);
+}
+
+body[data-role="sales"] .admin-only {
+  display: none !important;
+}
+
+.reports {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.panel .mini {
+  margin: 0 18px 12px;
+  box-shadow: none;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.mini table {
+  min-width: 0;
+}
+
+.mini th:last-child,
+.mini td:last-child {
+  position: static;
+  box-shadow: none;
+  background: transparent;
+}
+
+.mini th {
+  background: transparent;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.panel .form + .form,
+.stat-mini + .form {
+  padding-top: 8px;
+}
+
+@media (max-width: 860px) {
+  .reports {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================
+   LIQUID GLASS THEME (overrides everything above)
+   ===================================================== */
+:root {
+  --radius: 26px;
+  --lg-border: rgba(255, 255, 255, 0.24);
+  --lg-tint: 47, 139, 255;
+  --lg-fill: linear-gradient(135deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.04) 60%), rgba(12, 22, 40, 0.3);
+  --lg-blur: blur(26px) saturate(185%);
+  --lg-shadow: 0 14px 44px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 0 rgba(255, 255, 255, 0.07), inset 0 0 26px rgba(255, 255, 255, 0.05);
+  --focus: 0 0 0 3px rgba(var(--lg-tint), 0.4);
+}
+
+/* Colourful backdrop so the glass has something to refract */
+body {
+  background:
+    radial-gradient(700px 480px at 8% 6%, rgba(47, 139, 255, 0.55), transparent 60%),
+    radial-gradient(640px 460px at 92% 12%, rgba(32, 224, 192, 0.42), transparent 60%),
+    radial-gradient(620px 520px at 78% 92%, rgba(255, 138, 76, 0.4), transparent 60%),
+    radial-gradient(640px 480px at 14% 88%, rgba(168, 85, 247, 0.42), transparent 60%),
+    #07111f;
+  background-attachment: fixed;
+}
+
+.orb { opacity: 0.7; animation: drift 18s ease-in-out infinite alternate; }
+.orb-a { width: 380px; height: 380px; background: rgba(255, 190, 90, 0.3); }
+.orb-b { width: 420px; height: 420px; background: rgba(90, 160, 255, 0.32); animation-duration: 24s; animation-delay: -6s; }
+@keyframes drift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(60px, -50px) scale(1.15); }
+}
+
+/* Glass surfaces */
+.sidebar, .topbar, .card, .panel, .table-wrap, .modal-card, .toast, .sidebar-note {
+  background: var(--lg-fill);
+  border: 1px solid var(--lg-border);
+  box-shadow: var(--lg-shadow);
+  -webkit-backdrop-filter: var(--lg-blur);
+  backdrop-filter: var(--lg-blur);
+}
+
+.topbar, .panel, .modal-card, .card { position: relative; }
+
+/* Specular sheen that follows the pointer */
+.card::before, .panel::before, .topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(260px circle at var(--mx, 25%) var(--my, 0%), rgba(255, 255, 255, 0.22), transparent 62%),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.16), transparent 32%, transparent 70%, rgba(255, 255, 255, 0.07));
+}
+
+/* Floating sidebar */
+.sidebar {
+  margin: 14px 0 14px 14px;
+  height: calc(100vh - 28px);
+  top: 14px;
+  border-radius: 32px;
+}
+
+.sidebar-note {
+  border-radius: 20px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.brand-mark {
+  background: linear-gradient(180deg, rgba(120, 190, 255, 0.95), rgba(var(--lg-tint), 0.85));
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 8px 24px rgba(var(--lg-tint), 0.45);
+}
+
+/* Nav = glass pills; active = coloured liquid glass (like the Library tab) */
+.nav-btn {
+  border-radius: 999px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover { background: rgba(255, 255, 255, 0.1); }
+
+.nav-btn.active {
+  color: #fff;
+  background: linear-gradient(180deg, rgba(var(--lg-tint), 0.62), rgba(var(--lg-tint), 0.28));
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -8px 16px rgba(255, 255, 255, 0.06), 0 8px 22px rgba(var(--lg-tint), 0.4);
+}
+
+/* Stat cards: tinted glass */
+.card, .card.warning, .card.success, .card.info, .card:first-child {
+  --t: 32, 224, 192;
+  border: 1px solid var(--lg-border);
+  background: linear-gradient(135deg, rgba(var(--t), 0.3), rgba(255, 255, 255, 0.04) 65%), rgba(12, 22, 40, 0.3);
+}
+.card.warning { --t: 255, 190, 80; }
+.card.info { --t: 70, 150, 255; }
+.card:first-child { --t: 150, 110, 255; }
+.card::after { display: none; }
+.card:hover { box-shadow: var(--lg-shadow), 0 0 44px rgba(var(--t), 0.28); }
+
+/* Inputs */
+.search-wrap input, .form input, .form select, .topbar-meta select {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.search-wrap input, .topbar-meta select { border-radius: 999px; }
+.search-wrap input { padding-left: 20px; }
+select option { background: #0d1b2a; color: #f1f5f9; }
+
+/* Buttons */
+.btn, .btn.primary, .btn.ghost, .btn.danger {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+}
+.btn.primary {
+  color: #fff;
+  background: linear-gradient(180deg, rgba(var(--lg-tint), 0.78), rgba(var(--lg-tint), 0.4));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 8px 22px rgba(var(--lg-tint), 0.38);
+}
+.btn.primary:hover { background: linear-gradient(180deg, rgba(var(--lg-tint), 0.92), rgba(var(--lg-tint), 0.52)); }
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.btn.danger {
+  background: linear-gradient(180deg, rgba(251, 113, 133, 0.34), rgba(251, 113, 133, 0.14));
+  color: #ffd1d8;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Pills & badges */
+.status, .category-pill, .badge {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.status.in-stock { background: rgba(52, 211, 153, 0.22); color: #7cf0c4; }
+.status.low { background: rgba(245, 185, 66, 0.24); color: #ffd277; }
+.status.out { background: rgba(251, 113, 133, 0.24); color: #ffb3bf; }
+.status.expired { background: rgba(167, 139, 250, 0.26); color: #d8ccff; }
+
+/* Tables */
+.table-wrap { border-radius: var(--radius); }
+th { background: rgba(255, 255, 255, 0.07); border-bottom-color: rgba(255, 255, 255, 0.14); }
+td, th { border-bottom-color: rgba(255, 255, 255, 0.09); }
+tbody tr:hover { background: rgba(255, 255, 255, 0.07); }
+th:last-child, td:last-child {
+  background: rgba(22, 34, 58, 0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: -10px 0 16px rgba(0, 0, 0, 0.15);
+}
+.panel .mini {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.panel .mini th, .panel .mini td:last-child, .panel .mini th:last-child { background: transparent; box-shadow: none; }
+.panel .mini th { background: rgba(255, 255, 255, 0.05); }
+
+/* Totals, toast, modal */
+.totals div {
+  background: rgba(var(--lg-tint), 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.totals strong { color: #fff; }
+.toast { border-radius: 999px; padding: 12px 20px; }
+.toast.success { color: #7cf0c4; border-color: rgba(52, 211, 153, 0.5); }
+.toast.error { color: #ffb3bf; border-color: rgba(251, 113, 133, 0.5); }
+.modal { background: rgba(8, 14, 30, 0.45); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.modal-card { border-radius: 30px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05) 60%), rgba(18, 30, 52, 0.5); }
+.icon-btn { border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.08); }
+.menu-btn { border-radius: 50%; background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.28); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.badge, .topbar-meta select { color: #fff; }
+
+@media (max-width: 860px) {
+  .sidebar { top: 0; margin: 10px; height: calc(100vh - 20px); transform: translateX(-120%); }
+  .sidebar.open { transform: none; }
+  .topbar { border-radius: 26px; }
+}
+
+/* Fallback when backdrop-filter is unsupported */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .sidebar, .topbar, .card, .panel, .table-wrap, .modal-card, .toast { background: rgba(18, 30, 52, 0.92); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb { animation: none !important; }
+}
+
+/* Logo */
+.brand-logo {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 8px 18px rgba(47, 139, 255, 0.45));
+}
+
+</style>
+</head>
+<body data-role="admin">
+  <div class="ambient" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+  </div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <img class="brand-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJNZWRpVHJhY2sgbG9nbyIgeG1sbnM6YzJwYT0iaHR0cDovL2MycGEub3JnL21hbmlmZXN0Ij4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNmNjMGZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41NSIgc3RvcC1jb2xvcj0iIzJmOGJmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyMGUwYzAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Imdsb3ciIGN4PSIwLjI4IiBjeT0iMC4yIiByPSIwLjgiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMC41NSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNiIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJzaGVlbiIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMC41Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaW0iIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9IjAuOSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwLjYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxldHRlciIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZDlmM2ZmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNTAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjYiIHN0ZERldmlhdGlvbj0iNiIgZmxvb2QtY29sb3I9IiMwNjMwN2EiIGZsb29kLW9wYWNpdHk9IjAuNDUiLz4KICAgIDwvZmlsdGVyPgogICAgPGNsaXBQYXRoIGlkPSJjbGlwIj48cmVjdCB4PSIxNiIgeT0iMTYiIHdpZHRoPSIyMjQiIGhlaWdodD0iMjI0IiByeD0iNjgiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KCiAgPHJlY3QgeD0iMTYiIHk9IjE2IiB3aWR0aD0iMjI0IiBoZWlnaHQ9IjIyNCIgcng9IjY4IiBmaWxsPSJ1cmwoI2JnKSIvPgogIDxnIGNsaXAtcGF0aD0idXJsKCNjbGlwKSI+CiAgICA8cmVjdCB4PSIxNiIgeT0iMTYiIHdpZHRoPSIyMjQiIGhlaWdodD0iMjI0IiBmaWxsPSJ1cmwoI2dsb3cpIi8+CiAgICA8ZWxsaXBzZSBjeD0iMTI4IiBjeT0iNDgiIHJ4PSIxMDQiIHJ5PSI1MiIgZmlsbD0idXJsKCNzaGVlbikiLz4KICAgIDxlbGxpcHNlIGN4PSIxMjgiIGN5PSIyNTAiIHJ4PSIxMjAiIHJ5PSI0MCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC4xMiIvPgogIDwvZz4KICA8cmVjdCB4PSIxNy41IiB5PSIxNy41IiB3aWR0aD0iMjIxIiBoZWlnaHQ9IjIyMSIgcng9IjY2LjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNyaW0pIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSIzMCIgeT0iMzAiIHdpZHRoPSIxOTYiIGhlaWdodD0iMTk2IiByeD0iNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMTQiIHN0cm9rZS13aWR0aD0iMS41Ii8+CgogIDxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIj4KICAgIDxwYXRoIGQ9Ik04MCAxNzJWOTBMMTI4IDE0MEwxNzYgOTBWMTcyIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjbGV0dGVyKSIgc3Ryb2tlLXdpZHRoPSIyNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgICA8cGF0aCBkPSJNMTI4IDg4djIyTTExNyA5OWgyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzlmZmYxIiBzdHJva2Utd2lkdGg9IjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDwvZz4KPG1ldGFkYXRhPjxjMnBhOm1hbmlmZXN0PkFBQVdnbXAxYldJQUFBQWVhblZ0WkdNeWNHRUFFUUFRZ0FBQXFnQTRtM0VEWXpKd1lRQUFBQlpjYW5WdFlnQUFBRWRxZFcxa1l6SnRZUUFSQUJDQUFBQ3FBRGliY1FOMWNtNDZZekp3WVRvM1pUVmtNMkprTVMxbU1tTmpMVFE1TURNdFlUWTNaQzFoT0RNMk5qSXdPREEyTWpJQUFBQURsMnAxYldJQUFBQXBhblZ0WkdNeVlYTUFFUUFRZ0FBQXFnQTRtM0VEWXpKd1lTNWhjM05sY25ScGIyNXpBQUFBQUx4cWRXMWlBQUFBUkdwMWJXUmpZbTl5QUJFQUVJQUFBS29BT0p0eEUyTXljR0V1YVc1bmNtVmthV1Z1ZEM1Mk13QUFBQUFZWXpKemFKbXQvaGc0N3pORlcra1o0MUwyQzI4QUFBQndZMkp2Y3FOcFpHTTZabTl5YldGMGJXbHRZV2RsTDNOMlp5dDRiV3hxYVc1emRHRnVZMlZKUkhnc2VHMXdPbWxwWkRveE5UZGhObUZoTkMwM01EQmxMVFJoTWpBdE9XWmtNeTB6TVdKaE56bGlaR0kzTURGc2NtVnNZWFJwYjI1emFHbHdhSEJoY21WdWRFOW1BQUFCNG1wMWJXSUFBQUJCYW5WdFpHTmliM0lBRVFBUWdBQUFxZ0E0bTNFVFl6SndZUzVoWTNScGIyNXpMbll5QUFBQUFCaGpNbk5vRjl6dnZQWmlhQmZSRzZrMEJHL252Z0FBQVpsalltOXlvbWRoWTNScGIyNXpncUptWVdOMGFXOXVhMk15Y0dFdWIzQmxibVZrYW5CaGNtRnRaWFJsY25PaGEybHVaM0psWkdsbGJuUnpnYUpqZFhKc2VDMXpaV3htSTJwMWJXSm1QV015Y0dFdVlYTnpaWEowYVc5dWN5OWpNbkJoTG1sdVozSmxaR2xsYm5RdWRqTmthR0Z6YUZnZ2dDMDBlRGRqOTBHYVlhbTkxaDN5OGRHZVlIV0hSUmo5SU96TFlhTCtMSU9rWm1GamRHbHZibmdkWTI5dExtRnVkR2h5YjNCcFl5NWpiR0YxWkdVdWNISnZkbWxrWldScWNHRnlZVzFsZEdWeWM2RjRIMk52YlM1aGJuUm9jbTl3YVdNdWIzSnBaMmx1TFdOdmJtWnBaR1Z1WTJWbmRXNXJibTkzYm10a1pYTmpjbWx3ZEdsdmJuaG1RMnhoZFdSbElIQnliM1pwWkdWa0lIUm9hWE1nWm1sc1pTQmhkQ0IwYUdVZ2NtVnhkV1Z6ZENCdlppQmhJSFZ6WlhJZ1lXNWtJRzFoZVNCb1lYWmxJR055WldGMFpXUWdiM0lnYlc5a2FXWnBaV1FnZEdobElHWnBiR1VnWTI5dWRHVnVkSE11YlhOdlpuUjNZWEpsUVdkbGJuU2haRzVoYldWbVEyeGhkV1JsY21Gc2JFRmpkR2x2Ym5OSmJtTnNkV1JsWlBVQUFBRElhblZ0WWdBQUFFQnFkVzFrWTJKdmNnQVJBQkNBQUFDcUFEaWJjUk5qTW5CaExtaGhjMmd1WkdGMFlRQUFBQUFZWXpKemFPWnFtanRDbnd0cDJxYmJHeVdDWnlBQUFBQ0FZMkp2Y3FWallXeG5abk5vWVRJMU5tTndZV1JNQUFBQUFBQUFBQUFBQUFBQVpHaGhjMmhZSUozUEFsNUNKQTl6d0c0dTlBZWVmbmNpbGcxSi96bzY1MlpSaWZETmFFNnRaRzVoYldWdWFuVnRZbVlnYldGdWFXWmxjM1JxWlhoamJIVnphVzl1YzRHaVpYTjBZWEowR1FsZVpteGxibWQwYUJrZUJBQUFBajVxZFcxaUFBQUFKMnAxYldSak1tTnNBQkVBRUlBQUFLb0FPSnR4QTJNeWNHRXVZMnhoYVcwdWRqSUFBQUFDRDJOaWIzS2xZMkZzWjJaemFHRXlOVFpwYzJsbmJtRjBkWEpsZUUxelpXeG1JMnAxYldKbVBTOWpNbkJoTDNWeWJqcGpNbkJoT2pkbE5XUXpZbVF4TFdZeVkyTXRORGt3TXkxaE5qZGtMV0U0TXpZMk1qQTRNRFl5TWk5ak1uQmhMbk5wWjI1aGRIVnlaV3BwYm5OMFlXNWpaVWxFZUN4NGJYQTZhV2xrT21aaVlqVmpOemN5TFRabU9EUXRORE5sTWkxaU1XVmlMV0V6T0dNMk9HTmxOelU0WlhKamNtVmhkR1ZrWDJGemMyVnlkR2x2Ym5PRG9tTjFjbXg0TFhObGJHWWphblZ0WW1ZOVl6SndZUzVoYzNObGNuUnBiMjV6TDJNeWNHRXVhVzVuY21Wa2FXVnVkQzUyTTJSb1lYTm9XQ0NBTFRSNE4yUDNRWnBocWIzV0hmTHgwWjVnZFlkRkdQMGc3TXRob3Y0c2c2SmpkWEpzZUNwelpXeG1JMnAxYldKbVBXTXljR0V1WVhOelpYSjBhVzl1Y3k5ak1uQmhMbUZqZEdsdmJuTXVkakprYUdGemFGZ2d2MlZEOHkvR1kzQ2wxSHRKNU0vRENzU2U2QXQ3eXM1SUtzY1RyVk9PNGxPaVkzVnliSGdwYzJWc1ppTnFkVzFpWmoxak1uQmhMbUZ6YzJWeWRHbHZibk12WXpKd1lTNW9ZWE5vTG1SaGRHRmthR0Z6YUZnZ3BCaENZdmdpK2Vwd3NwUWtmVTZkQ3FmT3NRM2FPMjJ0dlFoL24xVm4zMWgwWTJ4aGFXMWZaMlZ1WlhKaGRHOXlYMmx1Wm0ralpHNWhiV1Z2UVc1MGFISnZjR2xqSUVacGJHVnpaM1psY25OcGIyNWxNUzR3TGpCcmMzQmxZMVpsY25OcGIyNWxNaTQwTGpBQUFCQTRhblZ0WWdBQUFDaHFkVzFrWXpKamN3QVJBQkNBQUFDcUFEaWJjUU5qTW5CaExuTnBaMjVoZEhWeVpRQUFBQkFJWTJKdmN0S0VXUUlTb2dFbUdDRlpBZ293Z2dJR01JSUJqYUFEQWdFQ0FoUkE1YUFLN3NJNTBMNjRnL29HUWdVOVoxVVRBREFLQmdncWhrak9QUVFEQXpCSk1SY3dGUVlEVlFRS0V3NUJiblJvY205d2FXTXNJRkJDUXpFdU1Dd0dBMVVFQXhNbFFXNTBhSEp2Y0dsaklFTnZiblJsYm5RZ1EzSmxaR1Z1ZEdsaGJITWdVbTl2ZENCRFFUQWVGdzB5TmpBNE1EY3hPRFF6TlRaYUZ3MHlPREE0TURZeE9UUXpOVFphTUVReEZ6QVZCZ05WQkFvVERrRnVkR2h5YjNCcFl5d2dVRUpETVNrd0p3WURWUVFERXlCQmJuUm9jbTl3YVdNZ1EyeGhkV1JsSUVOdmJuUmxiblFnVTJsbmJtbHVaekJaTUJNR0J5cUdTTTQ5QWdFR0NDcUdTTTQ5QXdFSEEwSUFCSmg2Q212TFVCZ0ZGTlUwdlVLbE9WdEU2ZGpkMTdMNVN1d1gwTGVtRmlzQk0zZGtkLzNjeWp4RkEzUW81UzQ2ZlgwL2loWTBWWjdtZmI5S0Y3MDN0NU9qV0RCV01BNEdBMVVkRHdFQi93UUVBd0lIZ0RBVkJnTlZIU1VFRGpBTUJnb3JCZ0VFQVlQb1hnSUJNQXdHQTFVZEV3RUIvd1FDTUFBd0h3WURWUjBqQkJnd0ZvQVV6bEhpQklGT1pGc2orT1BFejVvK25NSFhYTUl3Q2dZSUtvWkl6ajBFQXdNRFp3QXdaQUl3TVhNZEZKNEJldExMVlk3T1J1RTlub3FiYkFaT1puL2FBclh5VHdGQVpmS3JQenhGMnZQb0pOZjErVUNkZzFYR0FqQndYMXpkOVdHcVlrcW1MNVNGcXcxUXlTanIxekpmcEpNOSsxcmREd1NQTE1PUE9qS3VpWGpvVS9wVVVlRzlSd21oWTNCaFpGa05uZ0FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQVBaWVFMT3BwRDZqclZHKytsZ0l3Y05wK3krd1JCTGlvcTRGcEVycnh4NGt6NDJSNUNDclEwSm1pVDBRNENaa0RrbnhiR1hNQms2blZneDJxa2RkcjBvTWNwWT08L2MycGE6bWFuaWZlc3Q+PC9tZXRhZGF0YT48L3N2Zz4K" alt="MediTrack logo">
+        <div>
+          <strong>MediTrack</strong>
+          <span>Pharmacy desk</span>
+        </div>
+      </div>
+      <nav class="side-nav" id="sideNav" aria-label="Main"></nav>
+      <p class="sidebar-note">Educational front-end demo. Not a production pharmacy or billing system.</p>
+    </aside>
+
+    <div class="overlay" id="overlay" hidden></div>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p class="subtitle" id="pageSubtitle">Overview of stock and daily sales</p>
+        </div>
+        <div class="topbar-meta">
+          <span id="clock"></span>
+          <label class="sr-only" for="userSelect">Signed in as</label>
+          <select id="userSelect"></select>
+        </div>
+      </header>
+
+      <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+      <!-- Dashboard -->
+      <section class="view active" id="view-dashboard">
+        <div class="cards">
+          <article class="card">
+            <p>Total medicines</p>
+            <h2 id="statTotalMedicines">0</h2>
+            <span>Products in the catalogue</span>
+          </article>
+          <article class="card warning">
+            <p>Low stock</p>
+            <h2 id="statLowStock">0</h2>
+            <span>Medicines below reorder level</span>
+          </article>
+          <article class="card success">
+            <p>Today's sales</p>
+            <h2 id="statTodaySales">$0.00</h2>
+            <span>Completed transactions today</span>
+          </article>
+          <article class="card info">
+            <p>Stock value</p>
+            <h2 id="statInventoryValue">$0.00</h2>
+            <span>Sellable quantity × unit price</span>
+          </article>
+        </div>
+        <div class="panel-grid">
+          <article class="panel">
+            <div class="panel-head"><h3>Stock &amp; expiry alerts</h3></div>
+            <ul class="alert-list" id="alertList"></ul>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Recent sales</h3></div>
+            <ul class="recent-list" id="recentSales"></ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Medicine list with search -->
+      <section class="view" id="view-medicines">
+        <div class="toolbar">
+          <label class="search-wrap">
+            <span class="sr-only">Search medicines</span>
+            <input type="search" id="searchInput" placeholder="Search by name, generic name or category…">
+          </label>
+          <button class="btn primary admin-only" id="addMedicineBtn" type="button">Add medicine</button>
+        </div>
+        <div id="medBody"></div>
+      </section>
+
+      <!-- Suppliers -->
+      <section class="view" id="view-suppliers">
+        <div class="panel-grid">
+          <article class="panel">
+            <div class="panel-head"><h3>Add supplier</h3></div>
+            <form id="supplierForm" class="form">
+              <label>Supplier name <input type="text" id="supName" required maxlength="80"></label>
+              <label>Phone <input type="tel" id="supPhone" required maxlength="20" placeholder="0300-1234567"></label>
+              <label>City <input type="text" id="supCity" required maxlength="40"></label>
+              <button class="btn primary" type="submit">Save supplier</button>
+            </form>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Suppliers</h3></div>
+            <div id="supplierBody"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Receive stock (new batch) -->
+      <section class="view" id="view-receive">
+        <div class="panel-grid">
+          <article class="panel">
+            <div class="panel-head"><h3>Receive stock (new batch)</h3></div>
+            <form id="batchForm" class="form">
+              <label>Medicine <select id="batchMedicine" required></select></label>
+              <label>Supplier <select id="batchSupplier" required></select></label>
+              <div class="form-row">
+                <label>Batch no. <input type="text" id="batchNo" required maxlength="30"></label>
+                <label>Quantity <input type="number" id="batchQty" min="1" step="1" required></label>
+              </div>
+              <div class="form-row">
+                <label>Mfg date <input type="date" id="batchMfg" required></label>
+                <label>Expiry date <input type="date" id="batchExp" required></label>
+              </div>
+              <button class="btn primary" type="submit">Receive batch</button>
+            </form>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Batches</h3></div>
+            <div id="batchBody"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Point of sale -->
+      <section class="view" id="view-sales">
+        <div class="panel-grid sales-layout">
+          <article class="panel">
+            <div class="panel-head"><h3>New sale</h3></div>
+            <form id="saleForm" class="form">
+              <label>Customer name <input type="text" id="saleCustomer" maxlength="60" placeholder="Walk-in"></label>
+              <label>Medicine <select id="saleMedicine"></select></label>
+              <p class="hint" id="saleStockHint">Choose a medicine to see available stock.</p>
+              <label>Quantity <input type="number" id="saleQty" min="1" step="1" value="1"></label>
+              <button class="btn ghost" type="submit">Add to cart</button>
+            </form>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Cart</h3></div>
+            <ul class="stat-mini" id="cartList"></ul>
+            <div class="form">
+              <div class="totals">
+                <div><span>Sold by</span><strong id="soldBy">—</strong></div>
+                <div><span>Total</span><strong id="saleTotal">$0.00</strong></div>
+              </div>
+              <button class="btn primary" id="completeSaleBtn" type="button">Complete sale</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Sales history -->
+      <section class="view" id="view-history">
+        <div id="historyBody"></div>
+      </section>
+
+      <!-- Expiry and low-stock alerts -->
+      <section class="view" id="view-alerts">
+        <div class="panel-grid">
+          <article class="panel">
+            <div class="panel-head"><h3>Batches expiring within 30 days (or expired)</h3></div>
+            <div id="expiryBody"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Medicines below reorder level</h3></div>
+            <div id="lowBody"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Reports -->
+      <section class="view" id="view-reports">
+        <div class="reports" id="reportsGrid"></div>
+      </section>
+    </div>
+  </div>
+
+  <div class="modal" id="medicineModal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="panel-head">
+        <h3 id="modalTitle">Add medicine</h3>
+        <button class="icon-btn" id="closeModal" type="button" aria-label="Close">×</button>
+      </div>
+      <form id="medicineForm" class="form">
+        <input type="hidden" id="medicineId">
+        <label>Medicine name <input type="text" id="medName" required maxlength="80" placeholder="e.g. Amoxicillin 500mg"></label>
+        <label>Generic name <input type="text" id="medGeneric" required maxlength="80" placeholder="e.g. Amoxicillin"></label>
+        <label>
+          Category
+          <select id="medCategory" required>
+            <option value="">Select category</option>
+            <option>Antibiotics</option>
+            <option>Analgesics</option>
+            <option>Antihistamines</option>
+            <option>Cardiovascular</option>
+            <option>Diabetes</option>
+            <option>Gastrointestinal</option>
+            <option>Vitamins</option>
+            <option>Respiratory</option>
+            <option>Dermatology</option>
+          </select>
+        </label>
+        <div class="form-row">
+          <label>Unit price (USD) <input type="number" id="medPrice" min="0.01" step="0.01" required></label>
+          <label>Reorder level <input type="number" id="medReorder" min="0" step="1" required></label>
+        </div>
+        <div class="form-actions">
+          <button class="btn ghost" type="button" id="cancelModal">Cancel</button>
+          <button class="btn primary" type="submit">Save medicine</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+/* MediTrack — Project 13: Pharmacy Inventory and Sales
+   Data model mirrors the 5 tables: Suppliers, Medicines, Batches, Sales, Sale_Items.
+   Stored in localStorage (front-end demo). */
+
+const KEY = "meditrack.v2";
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const money = (v) => `$${Number(v).toFixed(2)}`;
+const iso = (d) => d.toISOString().slice(0, 10);
+const today = () => iso(new Date());
+const addDays = (n) => { const d = new Date(); d.setDate(d.getDate() + n); return iso(d); };
+const uid = (p) => p + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+
+const USERS = [
+  ["Admin (Pharmacist)", "Admin", "admin"],
+  ["Ali (Salesperson)", "Ali", "sales"],
+  ["Sara (Salesperson)", "Sara", "sales"]
+];
+
+// [view, label, adminOnly, icon path, subtitle]
+const NAV = [
+  ["dashboard", "Dashboard", 0, "M4 13h7V4H4v9zm9 7h7v-9h-7v9zM4 20h7v-5H4v5zm9-9h7V4h-7v7z", "Overview of stock and daily sales"],
+  ["medicines", "Medicines", 0, "M4 7h16M4 12h16M4 17h10", "Search medicines and see stock across batches"],
+  ["suppliers", "Suppliers", 1, "M3 8l9-4 9 4v10H3V8zm6 10v-6h6v6", "Add and view suppliers"],
+  ["receive", "Receive stock", 1, "M12 4v12m0 0l-4-4m4 4l4-4M5 20h14", "Record a new batch from a supplier"],
+  ["sales", "Point of sale", 0, "M4 19V5m0 14h16M8 15l3-4 3 2 4-6", "Sells from the earliest-expiring batch first (FEFO)"],
+  ["history", "Sales history", 0, "M12 4a8 8 0 100 16 8 8 0 000-16zm0 4v5l3 2", "Completed sales and the batches used"],
+  ["alerts", "Alerts", 0, "M12 4l9 16H3L12 4zm0 6v4m0 3v.5", "Expiring batches and low stock"],
+  ["reports", "Reports", 1, "M6 4h9l3 3v13H6V4zm3 8h6m-6 4h6", "Required queries 1 to 8"]
+];
+
+/* ---------- data ---------- */
+function seed() {
+  const B = (id, medId, supId, no, qty, mf, ex, received = qty) =>
+    ({ id, medId, supId, no, qty, received, mfg: addDays(mf), exp: addDays(ex) });
+  return {
+    suppliers: [
+      { id: "s1", name: "HealthLine Distributors", phone: "0300-1112233", city: "Lahore" },
+      { id: "s2", name: "MedSource Pharma", phone: "0321-4445566", city: "Karachi" },
+      { id: "s3", name: "CarePlus Traders", phone: "0333-7778899", city: "Islamabad" }
+    ],
+    medicines: [
+      { id: "m1", name: "Amoxicillin 500mg", generic: "Amoxicillin", category: "Antibiotics", price: 12.5, reorder: 20 },
+      { id: "m2", name: "Paracetamol 500mg", generic: "Acetaminophen", category: "Analgesics", price: 4.25, reorder: 50 },
+      { id: "m3", name: "Ibuprofen 200mg", generic: "Ibuprofen", category: "Analgesics", price: 6.9, reorder: 15 },
+      { id: "m4", name: "Loratadine 10mg", generic: "Loratadine", category: "Antihistamines", price: 8.75, reorder: 15 },
+      { id: "m5", name: "Metformin 500mg", generic: "Metformin", category: "Diabetes", price: 9.8, reorder: 20 },
+      { id: "m6", name: "Omeprazole 20mg", generic: "Omeprazole", category: "Gastrointestinal", price: 11.2, reorder: 20 }
+    ],
+    batches: [
+      B("b1", "m1", "s1", "AMX-101", 30, -200, 12),
+      B("b2", "m1", "s1", "AMX-102", 25, -30, 400),
+      B("b3", "m2", "s2", "PCM-201", 20, -250, 25, 22),
+      B("b4", "m2", "s2", "PCM-202", 100, -20, 600),
+      B("b5", "m3", "s3", "IBU-301", 8, -100, 200),
+      B("b6", "m4", "s2", "LOR-401", 36, -60, 500, 40),
+      B("b7", "m5", "s3", "MET-501", 15, -400, -10),
+      B("b8", "m6", "s1", "OME-601", 54, -40, 700)
+    ],
+    sales: [
+      { id: "x1", date: new Date().toISOString(), customer: "Walk-in", total: 8.5, soldBy: "Ali" },
+      { id: "x2", date: new Date(Date.now() - 5 * 864e5).toISOString(), customer: "Bilal", total: 35, soldBy: "Sara" }
+    ],
+    saleItems: [
+      { saleId: "x1", batchId: "b3", qty: 2, price: 4.25 },
+      { saleId: "x2", batchId: "b6", qty: 4, price: 8.75 }
+    ]
+  };
+}
+
+let db;
+try { db = JSON.parse(localStorage.getItem(KEY)); } catch { db = null; }
+if (!db) db = seed();
+const save = () => localStorage.setItem(KEY, JSON.stringify(db));
+
+let uIdx = Number(localStorage.getItem(KEY + ".user")) || 0;
+if (!USERS[uIdx]) uIdx = 0;
+let view = "dashboard";
+let cart = [];
+
+const isAdmin = () => USERS[uIdx][2] === "admin";
+const med = (id) => db.medicines.find((m) => m.id === id);
+const sup = (id) => db.suppliers.find((s) => s.id === id);
+const isExpired = (b) => b.exp < today();
+// Sellable batches: not expired, quantity > 0, earliest expiry first (FEFO)
+const sellable = (mid) => db.batches
+  .filter((b) => b.medId === mid && !isExpired(b) && b.qty > 0)
+  .sort((a, b) => a.exp.localeCompare(b.exp));
+const stock = (mid) => sellable(mid).reduce((s, b) => s + b.qty, 0);
+const lowList = () => db.medicines.filter((m) => stock(m.id) < m.reorder);
+const stockValue = () => db.medicines.reduce((s, m) => s + stock(m.id) * m.price, 0);
+const todayTotal = () => db.sales.filter((s) => s.date.slice(0, 10) === today()).reduce((s, x) => s + x.total, 0);
+const expiring = () => db.batches.filter((b) => b.qty > 0 && b.exp <= addDays(30)).sort((a, b) => a.exp.localeCompare(b.exp));
+const daysLeft = (b) => Math.round((new Date(b.exp) - new Date(today())) / 864e5);
+const batchStatus = (b) => isExpired(b) ? ["expired", "Expired"] : b.exp <= addDays(30) ? ["low", "Expiring soon"] : ["in-stock", "OK"];
+const medStatus = (m) => { const s = stock(m.id); return s === 0 ? ["out", "Out of stock"] : s < m.reorder ? ["low", "Below reorder"] : ["in-stock", "In stock"]; };
+const pill = (st) => `<span class="status ${st[0]}">${st[1]}</span>`;
+const cartTotal = () => cart.reduce((s, l) => s + l.qty * med(l.medId).price, 0);
+
+function tbl(head, rows, empty = "Nothing to show.", full = false) {
+  const body = rows.length
+    ? rows.map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")
+    : `<tr><td colspan="${head.length}" class="empty">${empty}</td></tr>`;
+  return `<div class="table-wrap${full ? "" : " mini"}"><table><thead><tr>${head.map((h) => `<th>${h}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
+function toast(message, type) {
+  const el = $("toast");
+  el.hidden = false;
+  el.className = `toast ${type}`;
+  el.textContent = message;
+  clearTimeout(toast.t);
+  toast.t = setTimeout(() => { el.hidden = true; }, 3200);
+}
+
+/* ---------- rendering ---------- */
+let animated = false;
+function renderStats() {
+  const vals = [db.medicines.length, lowList().length, todayTotal(), stockValue()];
+  const ids = ["statTotalMedicines", "statLowStock", "statTodaySales", "statInventoryValue"];
+  const draw = (k) => ids.forEach((id, i) => { const x = vals[i] * k; $(id).textContent = i >= 2 ? money(x) : Math.round(x); });
+  if (animated || window.matchMedia("(prefers-reduced-motion: reduce)").matches) { draw(1); return; }
+  animated = true;
+  const t0 = performance.now();
+  const tick = (n) => { const p = Math.min(1, (n - t0) / 700); draw(1 - Math.pow(1 - p, 3)); if (p < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+
+function renderDashboard() {
+  const alerts = [
+    ...lowList().map((m) => [esc(m.name), medStatus(m)]),
+    ...expiring().map((b) => [`${esc(med(b.medId).name)} (${esc(b.no)})`, batchStatus(b)])
+  ].slice(0, 6);
+  $("alertList").innerHTML = alerts.length
+    ? alerts.map(([n, st]) => `<li><span>${n}</span>${pill(st)}</li>`).join("")
+    : `<li class="empty">No stock alerts right now.</li>`;
+
+  const recent = [...db.sales].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6);
+  $("recentSales").innerHTML = recent.length
+    ? recent.map((s) => `<li><span>${esc(s.customer)} · ${db.saleItems.filter((i) => i.saleId === s.id).length} line(s)</span><strong>${money(s.total)}</strong></li>`).join("")
+    : `<li class="empty">No sales recorded yet.</li>`;
+}
+
+function renderMedicines() {
+  const q = $("searchInput").value.trim().toLowerCase(), adm = isAdmin();
+  const rows = db.medicines
+    .filter((m) => !q || [m.name, m.generic, m.category].some((x) => x.toLowerCase().includes(q)))
+    .map((m) => [
+      esc(m.name), esc(m.generic), `<span class="category-pill">${esc(m.category)}</span>`,
+      money(m.price), m.reorder, stock(m.id), pill(medStatus(m))
+    ].concat(adm ? [`<div class="row-actions"><button class="btn small ghost" data-edit="${m.id}" type="button">Edit</button><button class="btn small danger" data-delete="${m.id}" type="button">Delete</button></div>`] : []));
+  $("medBody").innerHTML = tbl(["Medicine", "Generic", "Category", "Price", "Reorder level", "In stock", "Status"].concat(adm ? ["Actions"] : []), rows, "No medicines match that search.", true);
+}
+
+function renderSuppliers() {
+  $("supplierBody").innerHTML = tbl(["Name", "Phone", "City"], db.suppliers.map((s) => [esc(s.name), esc(s.phone), esc(s.city)]), "No suppliers yet.");
+}
+
+function renderBatches() {
+  const rows = [...db.batches].sort((a, b) => a.exp.localeCompare(b.exp)).map((b) => [
+    esc(med(b.medId).name), esc(b.no), esc(sup(b.supId).name), b.qty, b.mfg, b.exp, pill(batchStatus(b))
+  ]);
+  $("batchBody").innerHTML = tbl(["Medicine", "Batch", "Supplier", "Qty", "Mfg", "Expiry", "Status"], rows, "No batches yet.");
+}
+
+function fillSelect(id, items, placeholder) {
+  const el = $(id), cur = el.value;
+  el.innerHTML = `<option value="">${placeholder}</option>` + items.map(([v, t]) => `<option value="${esc(v)}">${esc(t)}</option>`).join("");
+  el.value = cur;
+}
+
+function renderSelects() {
+  fillSelect("batchMedicine", db.medicines.map((m) => [m.id, m.name]), "Select medicine");
+  fillSelect("batchSupplier", db.suppliers.map((s) => [s.id, s.name]), "Select supplier");
+  fillSelect("saleMedicine", db.medicines.filter((m) => stock(m.id) > 0).map((m) => [m.id, `${m.name} (${stock(m.id)} in stock)`]), "Select a medicine");
+  updateSaleHint();
+}
+
+function updateSaleHint() {
+  const m = med($("saleMedicine").value), el = $("saleStockHint");
+  if (!m) { el.textContent = "Choose a medicine to see available stock."; return; }
+  const b = sellable(m.id)[0];
+  el.textContent = b
+    ? `${stock(m.id)} unit(s) available at ${money(m.price)} each. Sells from batch ${b.no} (expires ${b.exp}) first.`
+    : "No sellable stock (out of stock or every batch is expired).";
+}
+
+function renderCart() {
+  $("cartList").innerHTML = cart.length
+    ? cart.map((l, i) => { const m = med(l.medId); return `<li><span>${esc(m.name)} × ${l.qty}</span><span>${money(l.qty * m.price)} <button class="btn small danger" data-rm="${i}" type="button">Remove</button></span></li>`; }).join("")
+    : `<li class="empty">Cart is empty.</li>`;
+  $("saleTotal").textContent = money(cartTotal());
+  $("soldBy").textContent = USERS[uIdx][1];
+}
+
+function renderHistory() {
+  const rows = [...db.sales].sort((a, b) => b.date.localeCompare(a.date)).map((s) => {
+    const items = db.saleItems.filter((i) => i.saleId === s.id).map((i) => {
+      const b = db.batches.find((x) => x.id === i.batchId);
+      return `${esc(b ? med(b.medId).name : "?")} × ${i.qty} <small class="muted">(${esc(b ? b.no : "?")})</small>`;
+    }).join("<br>");
+    return [new Date(s.date).toLocaleString(), esc(s.customer), items, esc(s.soldBy), money(s.total)];
+  });
+  $("historyBody").innerHTML = tbl(["Time", "Customer", "Items (batch)", "Sold by", "Total"], rows, "No sales yet.", true);
+}
+
+function renderAlerts() {
+  $("expiryBody").innerHTML = tbl(["Medicine", "Batch", "Qty", "Expiry", "Days left", "Status"],
+    expiring().map((b) => [esc(med(b.medId).name), esc(b.no), b.qty, b.exp, daysLeft(b), pill(batchStatus(b))]),
+    "No batches are close to expiry.");
+  $("lowBody").innerHTML = tbl(["Medicine", "In stock", "Reorder level", "Short by"],
+    lowList().map((m) => [esc(m.name), stock(m.id), m.reorder, m.reorder - stock(m.id)]),
+    "Nothing is below its reorder level.");
+}
+
+function renderReports() {
+  const t = today(), sum = (a, f) => a.reduce((s, x) => s + f(x), 0);
+  const by = (arr, k, f) => { const o = {}; arr.forEach((x) => { o[k(x)] = (o[k(x)] || 0) + f(x); }); return Object.entries(o); };
+  const lines = db.saleItems.map((i) => {
+    const b = db.batches.find((x) => x.id === i.batchId), s = db.sales.find((x) => x.id === i.saleId);
+    return { qty: i.qty, medId: b && b.medId, date: s ? s.date.slice(0, 10) : "" };
+  });
+  const sold60 = new Set(lines.filter((l) => l.date >= addDays(-60)).map((l) => l.medId));
+  const reports = [
+    ["Batches expiring within 30 days", ["Medicine", "Batch", "Qty", "Expiry"],
+      expiring().filter((b) => b.exp >= t).map((b) => [esc(med(b.medId).name), esc(b.no), b.qty, b.exp])],
+    ["Medicines below reorder level (SUM of batch quantities)", ["Medicine", "In stock", "Reorder"],
+      lowList().map((m) => [esc(m.name), stock(m.id), m.reorder])],
+    ["Daily sales total", ["Date", "Total"],
+      by(db.sales, (s) => s.date.slice(0, 10), (s) => s.total).sort((a, b) => b[0].localeCompare(a[0])).map(([d, v]) => [d, money(v)])],
+    ["Top 10 selling medicines this month", ["Medicine", "Units sold"],
+      by(lines.filter((l) => l.date.startsWith(t.slice(0, 7))), (l) => l.medId, (l) => l.qty).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([id, q]) => [esc(med(id).name), q])],
+    ["Purchases per supplier", ["Supplier", "Batches", "Units received"],
+      db.suppliers.map((s) => { const bs = db.batches.filter((b) => b.supId === s.id); return [esc(s.name), bs.length, sum(bs, (b) => b.received)]; })],
+    ["Medicines with no sales in 60 days", ["Medicine", "Category"],
+      db.medicines.filter((m) => !sold60.has(m.id)).map((m) => [esc(m.name), esc(m.category)])],
+    ["Value of current stock (quantity × price)", ["Medicine", "Units", "Value"],
+      db.medicines.map((m) => [esc(m.name), stock(m.id), money(stock(m.id) * m.price)])
+        .concat([["<strong>Total</strong>", "", `<strong>${money(stockValue())}</strong>`]])],
+    ["Sales by salesperson", ["Salesperson", "Sales", "Total"],
+      [...new Set(db.sales.map((s) => s.soldBy))].map((n) => { const ss = db.sales.filter((s) => s.soldBy === n); return [esc(n), ss.length, money(sum(ss, (s) => s.total))]; })]
+  ];
+  $("reportsGrid").innerHTML = reports.map(([title, head, rows], i) =>
+    `<article class="panel"><div class="panel-head"><h3>${i + 1}. ${title}</h3></div>${tbl(head, rows)}</article>`).join("");
+}
+
+function renderAll() {
+  renderStats(); renderDashboard(); renderMedicines(); renderSuppliers(); renderBatches();
+  renderSelects(); renderCart(); renderHistory(); renderAlerts(); renderReports();
+}
+
+/* ---------- navigation & roles ---------- */
+function buildNav() {
+  $("sideNav").innerHTML = NAV.map(([v, label, adminOnly, path]) =>
+    `<button class="nav-btn${adminOnly ? " admin-only" : ""}" data-view="${v}" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="${path}"/></svg>${label}</button>`).join("");
+  $("userSelect").innerHTML = USERS.map((u, i) => `<option value="${i}">${u[0]}</option>`).join("");
+  $("userSelect").value = uIdx;
+}
+
+function applyRole() {
+  document.body.dataset.role = USERS[uIdx][2];
+  const nav = NAV.find((n) => n[0] === view);
+  if (nav[2] && !isAdmin()) view = "dashboard";
+}
+
+function switchView(v) {
+  view = v;
+  document.querySelectorAll(".view").forEach((el) => el.classList.toggle("active", el.id === `view-${v}`));
+  document.querySelectorAll(".nav-btn").forEach((b) => b.classList.toggle("active", b.dataset.view === v));
+  const n = NAV.find((x) => x[0] === v);
+  $("pageTitle").textContent = n[1];
+  $("pageSubtitle").textContent = n[4];
+  closeSidebar();
+}
+
+function closeSidebar() { $("sidebar").classList.remove("open"); $("overlay").hidden = true; }
+
+/* ---------- medicine modal ---------- */
+function openModal(m) {
+  $("medicineForm").reset();
+  $("medicineId").value = m ? m.id : "";
+  $("modalTitle").textContent = m ? "Edit medicine" : "Add medicine";
+  if (m) {
+    $("medName").value = m.name; $("medGeneric").value = m.generic; $("medCategory").value = m.category;
+    $("medPrice").value = m.price; $("medReorder").value = m.reorder;
+  }
+  $("medicineModal").classList.remove("is-closing");
+  $("medicineModal").hidden = false;
+}
+
+function closeModal() {
+  const modal = $("medicineModal");
+  if (modal.hidden) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { modal.hidden = true; return; }
+  modal.classList.add("is-closing");
+  setTimeout(() => { modal.hidden = true; modal.classList.remove("is-closing"); }, 180);
+}
+
+/* ---------- actions ---------- */
+function saveMedicine(e) {
+  e.preventDefault();
+  const d = {
+    id: $("medicineId").value || uid("m"),
+    name: $("medName").value.trim(), generic: $("medGeneric").value.trim(), category: $("medCategory").value,
+    price: Number($("medPrice").value), reorder: Number($("medReorder").value)
+  };
+  const err = !d.name ? "Medicine name is required."
+    : !d.generic ? "Generic name is required."
+    : !d.category ? "Please choose a category."
+    : !(d.price > 0) ? "Unit price must be greater than 0."
+    : !Number.isInteger(d.reorder) || d.reorder < 0 ? "Reorder level must be a whole number of 0 or more." : "";
+  if (err) return toast(err, "error");
+  const i = db.medicines.findIndex((m) => m.id === d.id);
+  if (i >= 0) { db.medicines[i] = d; toast("Medicine updated.", "success"); }
+  else { db.medicines.push(d); toast("Medicine added.", "success"); }
+  save(); closeModal(); renderAll();
+}
+
+function deleteMedicine(id) {
+  const m = med(id);
+  if (!m) return;
+  if (db.batches.some((b) => b.medId === id)) return toast("This medicine has batches, so it cannot be deleted.", "error");
+  if (!window.confirm(`Delete ${m.name}?`)) return;
+  db.medicines = db.medicines.filter((x) => x.id !== id);
+  cart = cart.filter((l) => l.medId !== id);
+  save(); renderAll(); toast("Medicine deleted.", "success");
+}
+
+function saveSupplier(e) {
+  e.preventDefault();
+  const s = { id: uid("s"), name: $("supName").value.trim(), phone: $("supPhone").value.trim(), city: $("supCity").value.trim() };
+  if (!s.name || !s.phone || !s.city) return toast("Name, phone and city are required.", "error");
+  db.suppliers.push(s); save(); $("supplierForm").reset(); renderAll(); toast("Supplier added.", "success");
+}
+
+function receiveBatch(e) {
+  e.preventDefault();
+  const b = {
+    id: uid("b"), medId: $("batchMedicine").value, supId: $("batchSupplier").value, no: $("batchNo").value.trim(),
+    qty: Number($("batchQty").value), mfg: $("batchMfg").value, exp: $("batchExp").value
+  };
+  const err = !b.medId || !b.supId ? "Choose a medicine and a supplier."
+    : !b.no ? "Batch number is required."
+    : !Number.isInteger(b.qty) || b.qty < 1 ? "Quantity must be a whole number of at least 1."
+    : !b.mfg || !b.exp ? "Manufacturing and expiry dates are required."
+    : b.exp <= b.mfg ? "Expiry date must be after the manufacturing date." : "";
+  if (err) return toast(err, "error");
+  b.received = b.qty;
+  db.batches.push(b); save(); $("batchForm").reset(); renderAll();
+  toast(isExpired(b) ? "Batch received, but it is already expired and cannot be sold." : "Batch received. Stock updated.", isExpired(b) ? "error" : "success");
+}
+
+function addToCart(e) {
+  e.preventDefault();
+  const m = med($("saleMedicine").value), qty = Number($("saleQty").value);
+  if (!m) return toast("Select a medicine first.", "error");
+  if (!Number.isInteger(qty) || qty < 1) return toast("Quantity must be a whole number of at least 1.", "error");
+  const line = cart.find((l) => l.medId === m.id), want = qty + (line ? line.qty : 0);
+  if (want > stock(m.id)) return toast(`Only ${stock(m.id)} unit(s) of ${m.name} can be sold (expired batches excluded).`, "error");
+  if (line) line.qty = want; else cart.push({ medId: m.id, qty });
+  $("saleQty").value = 1; renderCart();
+}
+
+// One sale = one transaction: allocate every line first (FEFO), commit only if all lines succeed.
+function completeSale() {
+  if (!cart.length) return toast("Add at least one item to the cart.", "error");
+  const id = uid("s"), avail = new Map(db.batches.map((b) => [b.id, b.qty])), items = [];
+  for (const l of cart) {
+    const m = med(l.medId);
+    let need = l.qty;
+    for (const b of sellable(l.medId)) {
+      if (!need) break;
+      const take = Math.min(need, avail.get(b.id));
+      avail.set(b.id, avail.get(b.id) - take);
+      items.push({ saleId: id, batchId: b.id, qty: take, price: m.price });
+      need -= take;
+    }
+    if (need) return toast(`Not enough sellable stock for ${m.name}. Sale cancelled.`, "error");
+  }
+  db.batches.forEach((b) => { b.qty = avail.get(b.id); });
+  db.sales.push({ id, date: new Date().toISOString(), customer: $("saleCustomer").value.trim() || "Walk-in", total: cartTotal(), soldBy: USERS[uIdx][1] });
+  db.saleItems.push(...items);
+  save(); cart = []; $("saleCustomer").value = ""; renderAll();
+  toast("Sale completed. Stock reduced from the earliest-expiring batches.", "success");
+}
+
+/* ---------- events ---------- */
+function bindEvents() {
+  $("sideNav").addEventListener("click", (e) => { const b = e.target.closest("[data-view]"); if (b) switchView(b.dataset.view); });
+  $("menuBtn").addEventListener("click", () => { $("sidebar").classList.add("open"); $("overlay").hidden = false; });
+  $("overlay").addEventListener("click", closeSidebar);
+  $("userSelect").addEventListener("change", (e) => {
+    uIdx = Number(e.target.value); localStorage.setItem(KEY + ".user", uIdx);
+    applyRole(); switchView(view); renderAll();
+  });
+  $("searchInput").addEventListener("input", renderMedicines);
+  $("addMedicineBtn").addEventListener("click", () => openModal(null));
+  $("closeModal").addEventListener("click", closeModal);
+  $("cancelModal").addEventListener("click", closeModal);
+  $("medicineModal").addEventListener("click", (e) => { if (e.target === $("medicineModal")) closeModal(); });
+  $("medicineForm").addEventListener("submit", saveMedicine);
+  $("supplierForm").addEventListener("submit", saveSupplier);
+  $("batchForm").addEventListener("submit", receiveBatch);
+  $("saleForm").addEventListener("submit", addToCart);
+  $("saleMedicine").addEventListener("change", updateSaleHint);
+  $("completeSaleBtn").addEventListener("click", completeSale);
+  $("cartList").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-rm]");
+    if (b) { cart.splice(Number(b.dataset.rm), 1); renderCart(); }
+  });
+  $("medBody").addEventListener("click", (e) => {
+    const ed = e.target.closest("[data-edit]"), del = e.target.closest("[data-delete]");
+    if (ed) openModal(med(ed.dataset.edit));
+    if (del) deleteMedicine(del.dataset.delete);
+  });
+}
+
+const tickClock = () => { $("clock").textContent = new Date().toLocaleString(); };
+
+buildNav();
+applyRole();
+bindEvents();
+renderAll();
+switchView(view);
+tickClock();
+setInterval(tickClock, 1000);
+
+/* Liquid glass: move the specular highlight with the pointer */
+document.addEventListener("pointermove", (e) => {
+  const el = e.target.closest(".card, .panel, .topbar");
+  if (!el) return;
+  const r = el.getBoundingClientRect();
+  el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+  el.style.setProperty("--my", `${e.clientY - r.top}px`);
+});
+
+</script>
+</body>
+</html>
